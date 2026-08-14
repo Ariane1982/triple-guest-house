@@ -167,38 +167,53 @@
         }
 
 
-        /* LOGO */
 
-        .logo {
-            color: white;
+       /* =========================
+   TRIPLE GUEST HOUSE LOGO
+========================= */
 
-            display: flex;
+.brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #174d35;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
 
-            flex-direction: column;
+.brand-logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+    display: block;
+    border: none;
+}
 
-            line-height: 1;
-        }
+/* Hover */
+.brand-logo:hover {
+    color: #2e8b57;
+}
 
+/* =========================
+   MOBILE
+========================= */
 
-        .logo strong {
-            font-family: "Playfair Display", serif;
+@media (max-width: 768px) {
 
-            font-size: 25px;
+    .brand-logo {
+        gap: 8px;
+        font-size: 15px;
+    }
 
-            letter-spacing: 2px;
-        }
-
-
-        .logo small {
-            font-size: 7px;
-
-            letter-spacing: 4px;
-
-            margin-top: 6px;
-
-            color: #c9e8d5;
-        }
-
+    .brand-logo img {
+        width: 48px;
+        height: 48px;
+    }
+}
 
         /* NAVIGATION */
 
@@ -1648,13 +1663,9 @@
     <div class="container nav-container">
 
 
-        <a href="index.html" class="logo">
-
-            <strong>TRIPLE</strong>
-
-            <small>GUEST HOUSE</small>
-
-        </a>
+<a href="index.html" class="brand-logo">
+    <img src="images/logo.jpeg" alt="Triple Guest House Logo">
+</a>
 
 
         <nav class="nav-links" id="navLinks">
