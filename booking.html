@@ -1,0 +1,2269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Book Your Stay | Triple Guest House</title>
+
+    <meta name="description"
+          content="Book your stay at Triple Guest House and enjoy comfortable accommodation, sauna and massage services.">
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f6f9f6;
+            color: #26372e;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            background: #123c2a;
+            padding: 18px 0;
+            box-shadow: 0 5px 25px rgba(0,0,0,.12);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo strong {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .logo small {
+            font-size: 7px;
+            letter-spacing: 4px;
+            color: #bde3cc;
+            margin-top: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-size: 12px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: #bde3cc;
+        }
+
+        .nav-book {
+            background: #fff;
+            color: #123c2a;
+            padding: 12px 20px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-btn {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: #fff;
+            font-size: 22px;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .booking-hero {
+            min-height: 430px;
+
+            background:
+                linear-gradient(
+                    rgba(8,40,27,.87),
+                    rgba(8,40,27,.65)
+                ),
+                url("images/booking-hero.jpg")
+                center/cover;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: #fff;
+        }
+
+        .booking-hero-content {
+            padding: 50px 0;
+        }
+
+        .hero-label {
+            color: #bde3cc;
+            font-size: 10px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .booking-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 7vw, 70px);
+            margin-bottom: 15px;
+        }
+
+        .booking-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #dce8e1;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+
+        /* =====================================================
+           BOOKING AREA
+        ===================================================== */
+
+        .booking-section {
+            padding: 80px 0 100px;
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: 1.5fr .8fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+
+        /* =====================================================
+           FORM CARD
+        ===================================================== */
+
+        .booking-card {
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 15px 50px rgba(12,44,30,.08);
+        }
+
+        .card-heading {
+            margin-bottom: 30px;
+        }
+
+        .card-heading small {
+            color: #2f8055;
+            font-size: 9px;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .card-heading h2 {
+            font-family: "Playfair Display", serif;
+            color: #123c2a;
+            font-size: 34px;
+            margin-top: 7px;
+        }
+
+
+        /* =====================================================
+           FORM SECTIONS
+        ===================================================== */
+
+        .form-section {
+            margin-bottom: 35px;
+        }
+
+        .form-section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-family: "Playfair Display", serif;
+            color: #123c2a;
+
+            font-size: 22px;
+
+            margin-bottom: 20px;
+
+            padding-bottom: 12px;
+
+            border-bottom: 1px solid #e4ece6;
+        }
+
+        .form-section-title span {
+            width: 32px;
+            height: 32px;
+
+            background: #eaf5ee;
+            color: #2f8055;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            font-family: "Poppins", sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           FORM GRID
+        ===================================================== */
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 5px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+
+            color: #405349;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            background: #fbfdfb;
+
+            border: 1px solid #dce6df;
+
+            outline: none;
+
+            color: #26372e;
+
+            font-size: 12px;
+
+            transition: .3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+
+            border-color: #2f8055;
+
+            background: #fff;
+
+            box-shadow:
+                0 0 0 3px rgba(47,128,85,.08);
+        }
+
+
+        /* =====================================================
+           ROOM CARDS
+        ===================================================== */
+
+        .rooms {
+            display: grid;
+            gap: 15px;
+        }
+
+        .room-option {
+            position: relative;
+        }
+
+        .room-option input {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .room-label {
+
+            display: grid;
+
+            grid-template-columns: 110px 1fr auto;
+
+            gap: 18px;
+
+            align-items: center;
+
+            padding: 12px;
+
+            border: 1px solid #dce6df;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .room-label:hover {
+            border-color: #2f8055;
+        }
+
+        .room-option input:checked + .room-label {
+
+            border-color: #2f8055;
+
+            background: #f1f8f3;
+
+            box-shadow:
+                inset 4px 0 #2f8055;
+        }
+
+        .room-image {
+
+            width: 110px;
+            height: 80px;
+
+            object-fit: cover;
+        }
+
+        .room-info h4 {
+
+            font-family: "Playfair Display", serif;
+
+            color: #123c2a;
+
+            font-size: 19px;
+
+            margin-bottom: 5px;
+        }
+
+        .room-info p {
+
+            color: #78867f;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+        .room-price {
+
+            color: #2f8055;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+        .room-price small {
+
+            color: #89958e;
+
+            font-size: 8px;
+
+            font-weight: 400;
+        }
+
+
+        /* =====================================================
+           WELLNESS OPTIONS
+        ===================================================== */
+
+        .wellness-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .wellness-option {
+
+            border: 1px solid #dce6df;
+
+            padding: 18px;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .wellness-option:hover {
+            border-color: #2f8055;
+        }
+
+        .wellness-option input {
+            accent-color: #2f8055;
+            margin-right: 8px;
+        }
+
+        .wellness-option strong {
+            color: #123c2a;
+            font-size: 12px;
+        }
+
+        .wellness-option p {
+            color: #849189;
+            font-size: 9px;
+            margin-top: 7px;
+        }
+
+
+        /* =====================================================
+           SPECIAL REQUEST
+        ===================================================== */
+
+        textarea {
+
+            width: 100%;
+
+            min-height: 110px;
+
+            resize: vertical;
+
+            padding: 14px;
+
+            border: 1px solid #dce6df;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 12px;
+
+            color: #26372e;
+        }
+
+        textarea:focus {
+            border-color: #2f8055;
+        }
+
+
+        /* =====================================================
+           SUMMARY
+        ===================================================== */
+
+        .summary-card {
+
+            position: sticky;
+            top: 25px;
+
+            background: #123c2a;
+
+            color: #fff;
+
+            padding: 30px;
+
+            box-shadow:
+                0 20px 50px rgba(8,40,27,.18);
+        }
+
+        .summary-top {
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(255,255,255,.15);
+        }
+
+        .summary-top small {
+            color: #bde3cc;
+            font-size: 9px;
+            letter-spacing: 3px;
+        }
+
+        .summary-top h3 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
+            margin-top: 8px;
+        }
+
+
+        /* =====================================================
+           SUMMARY DETAILS
+        ===================================================== */
+
+        .summary-details {
+            padding: 25px 0;
+        }
+
+        .summary-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 11px 0;
+
+            border-bottom: 1px solid rgba(255,255,255,.08);
+
+            font-size: 11px;
+
+        }
+
+        .summary-row span:first-child {
+            color: #a9bdb1;
+        }
+
+        .summary-row span:last-child {
+            color: #fff;
+            text-align: right;
+        }
+
+
+        /* =====================================================
+           PRICE
+        ===================================================== */
+
+        .price-box {
+
+            margin-top: 15px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,.2);
+        }
+
+        .price-box small {
+            color: #a9bdb1;
+            font-size: 9px;
+        }
+
+        .total-price {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-top: 7px;
+        }
+
+        .total-price strong {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            color: #bde3cc;
+        }
+
+
+        /* =====================================================
+           BOOK BUTTON
+        ===================================================== */
+
+        .book-button {
+
+            width: 100%;
+
+            border: none;
+
+            background: #2f8055;
+
+            color: #fff;
+
+            padding: 17px;
+
+            font-size: 10px;
+
+            font-weight: 600;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            transition: .3s;
+        }
+
+        .book-button:hover {
+
+            background: #fff;
+
+            color: #123c2a;
+
+        }
+
+        .secure-note {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #91aa9c;
+
+            font-size: 8px;
+
+        }
+
+
+        /* =====================================================
+           TRUST
+        ===================================================== */
+
+        .trust-section {
+
+            padding: 45px 0;
+
+            background: #edf5ef;
+
+            border-top: 1px solid #e0ebe3;
+        }
+
+        .trust-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 30px;
+
+        }
+
+        .trust-item {
+
+            display: flex;
+
+            gap: 15px;
+
+            align-items: center;
+        }
+
+        .trust-icon {
+
+            width: 45px;
+            height: 45px;
+
+            flex-shrink: 0;
+
+            background: #fff;
+
+            color: #2f8055;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .trust-item h4 {
+
+            color: #123c2a;
+
+            font-size: 12px;
+
+            margin-bottom: 4px;
+        }
+
+        .trust-item p {
+
+            color: #7b8981;
+
+            font-size: 9px;
+        }
+
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            color: #fff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 25px;
+
+            z-index: 999;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.2);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 950px) {
+
+            .booking-layout {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .summary-card {
+
+                position: relative;
+                top: 0;
+
+            }
+
+        }
+
+
+        @media(max-width: 700px) {
+
+            .nav-links,
+            .nav-book {
+
+                display: none;
+
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .booking-card {
+                padding: 25px 18px;
+            }
+
+            .room-label {
+
+                grid-template-columns: 80px 1fr;
+
+            }
+
+            .room-image {
+
+                width: 80px;
+                height: 70px;
+
+            }
+
+            .room-price {
+
+                grid-column: 2;
+
+            }
+
+            .wellness-options {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .trust-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html"
+           class="logo">
+
+            <strong>TRIPLE</strong>
+
+            <small>GUEST HOUSE</small>
+
+        </a>
+
+
+        <nav class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </nav>
+
+
+        <a href="booking.html"
+           class="nav-book">
+
+            Book Now
+
+        </a>
+
+
+        <button class="menu-btn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="booking-hero">
+
+    <div class="booking-hero-content">
+
+        <div class="hero-label">
+            TRIPLE GUEST HOUSE
+        </div>
+
+        <h1>
+            Reserve Your Stay
+        </h1>
+
+        <p>
+            Choose your room, select your wellness
+            experience and let us prepare a comfortable
+            stay designed around you.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     BOOKING SECTION
+===================================================== -->
+
+<section class="booking-section">
+
+    <div class="container">
+
+        <div class="booking-layout">
+
+
+            <!-- =================================================
+                 BOOKING FORM
+            ================================================= -->
+
+            <div class="booking-card">
+
+                <div class="card-heading">
+
+                    <small>
+                        RESERVATION
+                    </small>
+
+                    <h2>
+                        Plan Your Stay
+                    </h2>
+
+                </div>
+
+
+                <form id="bookingForm">
+
+
+                    <!-- =========================================
+                         01 GUEST INFORMATION
+                    ========================================== -->
+
+                    <div class="form-section">
+
+                        <h3 class="form-section-title">
+
+                            <span>01</span>
+
+                            Guest Information
+
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Full Name *
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="guestName"
+                                    placeholder="Your full name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Phone Number *
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="guestPhone"
+                                    placeholder="+250..."
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="guestEmail"
+                                    placeholder="your@email.com"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Country
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="guestCountry"
+                                    placeholder="Your country"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         02 STAY DETAILS
+                    ========================================== -->
+
+                    <div class="form-section">
+
+                        <h3 class="form-section-title">
+
+                            <span>02</span>
+
+                            Stay Details
+
+                        </h3>
+
+
+                        <div class="form-grid">
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Check-In *
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="checkIn"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Check-Out *
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="checkOut"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Adults
+                                </label>
+
+                                <select id="adults">
+
+                                    <option value="1">
+                                        1 Adult
+                                    </option>
+
+                                    <option value="2" selected>
+                                        2 Adults
+                                    </option>
+
+                                    <option value="3">
+                                        3 Adults
+                                    </option>
+
+                                    <option value="4">
+                                        4 Adults
+                                    </option>
+
+                                    <option value="5">
+                                        5 Adults
+                                    </option>
+
+                                    <option value="6">
+                                        6 Adults
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label>
+                                    Children
+                                </label>
+
+                                <select id="children">
+
+                                    <option value="0">
+                                        No Children
+                                    </option>
+
+                                    <option value="1">
+                                        1 Child
+                                    </option>
+
+                                    <option value="2">
+                                        2 Children
+                                    </option>
+
+                                    <option value="3">
+                                        3 Children
+                                    </option>
+
+                                    <option value="4">
+                                        4 Children
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         03 ROOM
+                    ========================================== -->
+
+                    <div class="form-section">
+
+                        <h3 class="form-section-title">
+
+                            <span>03</span>
+
+                            Choose Your Room
+
+                        </h3>
+
+
+                        <div class="rooms">
+
+
+                            <!-- STANDARD -->
+
+                            <div class="room-option">
+
+                                <input
+                                    type="radio"
+                                    name="room"
+                                    id="standard"
+                                    value="50000"
+                                    data-room="Standard Room"
+                                    checked
+                                >
+
+                                <label
+                                    for="standard"
+                                    class="room-label">
+
+                                    <img
+                                        src="images/room-standard.jpg"
+                                        class="room-image"
+                                        alt="Standard Room"
+                                    >
+
+                                    <div class="room-info">
+
+                                        <h4>
+                                            Standard Room
+                                        </h4>
+
+                                        <p>
+                                            Comfortable room
+                                            for a peaceful stay.
+                                        </p>
+
+                                    </div>
+
+                                    <div class="room-price">
+
+                                        50,000 RWF
+
+                                        <small>
+                                            / night
+                                        </small>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+
+
+                            <!-- DELUXE -->
+
+                            <div class="room-option">
+
+                                <input
+                                    type="radio"
+                                    name="room"
+                                    id="deluxe"
+                                    value="75000"
+                                    data-room="Deluxe Room"
+                                >
+
+                                <label
+                                    for="deluxe"
+                                    class="room-label">
+
+                                    <img
+                                        src="images/room-deluxe.jpg"
+                                        class="room-image"
+                                        alt="Deluxe Room"
+                                    >
+
+                                    <div class="room-info">
+
+                                        <h4>
+                                            Deluxe Room
+                                        </h4>
+
+                                        <p>
+                                            More space,
+                                            comfort and style.
+                                        </p>
+
+                                    </div>
+
+                                    <div class="room-price">
+
+                                        75,000 RWF
+
+                                        <small>
+                                            / night
+                                        </small>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+
+
+                            <!-- EXECUTIVE -->
+
+                            <div class="room-option">
+
+                                <input
+                                    type="radio"
+                                    name="room"
+                                    id="executive"
+                                    value="100000"
+                                    data-room="Executive Suite"
+                                >
+
+                                <label
+                                    for="executive"
+                                    class="room-label">
+
+                                    <img
+                                        src="images/room-executive.jpg"
+                                        class="room-image"
+                                        alt="Executive Suite"
+                                    >
+
+                                    <div class="room-info">
+
+                                        <h4>
+                                            Executive Suite
+                                        </h4>
+
+                                        <p>
+                                            Premium comfort
+                                            for a special stay.
+                                        </p>
+
+                                    </div>
+
+                                    <div class="room-price">
+
+                                        100,000 RWF
+
+                                        <small>
+                                            / night
+                                        </small>
+
+                                    </div>
+
+                                </label>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         04 WELLNESS
+                    ========================================== -->
+
+                    <div class="form-section">
+
+                        <h3 class="form-section-title">
+
+                            <span>04</span>
+
+                            Wellness Experience
+
+                        </h3>
+
+
+                        <div class="wellness-options">
+
+
+                            <label class="wellness-option">
+
+                                <input
+                                    type="checkbox"
+                                    class="service"
+                                    value="15000"
+                                    data-service="Sauna"
+                                >
+
+                                <strong>
+                                    Sauna — 15,000 RWF
+                                </strong>
+
+                                <p>
+                                    Relax and refresh
+                                    your body.
+                                </p>
+
+                            </label>
+
+
+                            <label class="wellness-option">
+
+                                <input
+                                    type="checkbox"
+                                    class="service"
+                                    value="25000"
+                                    data-service="Massage"
+                                >
+
+                                <strong>
+                                    Massage — 25,000 RWF
+                                </strong>
+
+                                <p>
+                                    Enjoy a relaxing
+                                    wellness massage.
+                                </p>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =========================================
+                         05 REQUEST
+                    ========================================== -->
+
+                    <div class="form-section">
+
+                        <h3 class="form-section-title">
+
+                            <span>05</span>
+
+                            Special Request
+
+                        </h3>
+
+
+                        <textarea
+                            id="specialRequest"
+                            placeholder="Any special requests, arrival time or anything you would like us to know?"
+                        ></textarea>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SUMMARY
+            ================================================= -->
+
+            <aside class="summary-card">
+
+
+                <div class="summary-top">
+
+                    <small>
+                        YOUR RESERVATION
+                    </small>
+
+                    <h3>
+                        Booking Summary
+                    </h3>
+
+                </div>
+
+
+                <div class="summary-details">
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Guest
+                        </span>
+
+                        <span id="summaryGuest">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Stay
+                        </span>
+
+                        <span id="summaryDates">
+                            Select dates
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Nights
+                        </span>
+
+                        <span id="summaryNights">
+                            0
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Guests
+                        </span>
+
+                        <span id="summaryGuests">
+                            2 Adults
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Room
+                        </span>
+
+                        <span id="summaryRoom">
+                            Standard Room
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Room Price
+                        </span>
+
+                        <span id="summaryRoomPrice">
+                            50,000 RWF
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>
+                            Wellness
+                        </span>
+
+                        <span id="summaryServices">
+                            None
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="price-box">
+
+                    <small>
+                        ESTIMATED TOTAL
+                    </small>
+
+
+                    <div class="total-price">
+
+                        <strong id="totalPrice">
+                            0 RWF
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="book-button"
+                    id="bookButton">
+
+                    Confirm Booking
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </button>
+
+
+                <div class="secure-note">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Your booking request will be sent
+                    securely via WhatsApp.
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TRUST SECTION
+===================================================== -->
+
+<section class="trust-section">
+
+    <div class="container trust-grid">
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Easy Reservation
+                </h4>
+
+                <p>
+                    Simple and fast booking process.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+
+                <i class="fa-solid fa-spa"></i>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Wellness Experience
+                </h4>
+
+                <p>
+                    Sauna and massage available.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="trust-item">
+
+            <div class="trust-icon">
+
+                <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+            <div>
+
+                <h4>
+                    Personal Assistance
+                </h4>
+
+                <p>
+                    Our team is ready to help you.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a href="https://wa.me/250XXXXXXXXX"
+   class="whatsapp"
+   target="_blank">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const guestName =
+        document.getElementById("guestName");
+
+    const guestPhone =
+        document.getElementById("guestPhone");
+
+    const guestEmail =
+        document.getElementById("guestEmail");
+
+    const checkIn =
+        document.getElementById("checkIn");
+
+    const checkOut =
+        document.getElementById("checkOut");
+
+    const adults =
+        document.getElementById("adults");
+
+    const children =
+        document.getElementById("children");
+
+    const roomInputs =
+        document.querySelectorAll('input[name="room"]');
+
+    const serviceInputs =
+        document.querySelectorAll(".service");
+
+
+    /* =====================================================
+       SUMMARY
+    ===================================================== */
+
+    const summaryGuest =
+        document.getElementById("summaryGuest");
+
+    const summaryDates =
+        document.getElementById("summaryDates");
+
+    const summaryNights =
+        document.getElementById("summaryNights");
+
+    const summaryGuests =
+        document.getElementById("summaryGuests");
+
+    const summaryRoom =
+        document.getElementById("summaryRoom");
+
+    const summaryRoomPrice =
+        document.getElementById("summaryRoomPrice");
+
+    const summaryServices =
+        document.getElementById("summaryServices");
+
+    const totalPrice =
+        document.getElementById("totalPrice");
+
+
+    /* =====================================================
+       FORMAT MONEY
+    ===================================================== */
+
+    function formatMoney(number) {
+
+        return number.toLocaleString("en-US") + " RWF";
+
+    }
+
+
+    /* =====================================================
+       CALCULATE NIGHTS
+    ===================================================== */
+
+    function calculateNights() {
+
+        if (!checkIn.value || !checkOut.value) {
+
+            return 0;
+
+        }
+
+
+        const start =
+            new Date(checkIn.value);
+
+        const end =
+            new Date(checkOut.value);
+
+
+        const difference =
+            end - start;
+
+
+        const nights =
+            difference /
+            (1000 * 60 * 60 * 24);
+
+
+        return nights > 0
+            ? nights
+            : 0;
+
+    }
+
+
+    /* =====================================================
+       UPDATE SUMMARY
+    ===================================================== */
+
+    function updateSummary() {
+
+
+        /* GUEST */
+
+        summaryGuest.textContent =
+            guestName.value || "—";
+
+
+        /* NIGHTS */
+
+        const nights =
+            calculateNights();
+
+        summaryNights.textContent =
+            nights;
+
+
+        /* DATES */
+
+        if (checkIn.value && checkOut.value) {
+
+            summaryDates.textContent =
+                checkIn.value +
+                " → " +
+                checkOut.value;
+
+        } else {
+
+            summaryDates.textContent =
+                "Select dates";
+
+        }
+
+
+        /* GUESTS */
+
+        const adultCount =
+            adults.value;
+
+        const childCount =
+            children.value;
+
+
+        summaryGuests.textContent =
+            adultCount +
+            " Adults" +
+            (
+                childCount > 0
+                ? " + " + childCount + " Children"
+                : ""
+            );
+
+
+        /* ROOM */
+
+        let selectedRoom =
+            document.querySelector(
+                'input[name="room"]:checked'
+            );
+
+
+        let roomPrice =
+            Number(selectedRoom.value);
+
+
+        let roomName =
+            selectedRoom.dataset.room;
+
+
+        summaryRoom.textContent =
+            roomName;
+
+
+        summaryRoomPrice.textContent =
+            formatMoney(roomPrice);
+
+
+        /* SERVICES */
+
+        let services = [];
+
+        let serviceTotal = 0;
+
+
+        serviceInputs.forEach(function(service) {
+
+            if (service.checked) {
+
+                services.push(
+                    service.dataset.service
+                );
+
+                serviceTotal +=
+                    Number(service.value);
+
+            }
+
+        });
+
+
+        summaryServices.textContent =
+            services.length
+            ? services.join(", ")
+            : "None";
+
+
+        /* TOTAL */
+
+        const roomTotal =
+            roomPrice * nights;
+
+
+        const total =
+            roomTotal + serviceTotal;
+
+
+        totalPrice.textContent =
+            formatMoney(total);
+
+    }
+
+
+    /* =====================================================
+       MINIMUM DATE
+    ===================================================== */
+
+    const today =
+        new Date()
+        .toISOString()
+        .split("T")[0];
+
+
+    checkIn.min = today;
+    checkOut.min = today;
+
+
+    /* =====================================================
+       CHECK-IN CHANGE
+    ===================================================== */
+
+    checkIn.addEventListener(
+        "change",
+        function() {
+
+            checkOut.min =
+                checkIn.value;
+
+            updateSummary();
+
+        }
+    );
+
+
+    /* =====================================================
+       CHECK-OUT
+    ===================================================== */
+
+    checkOut.addEventListener(
+        "change",
+        updateSummary
+    );
+
+
+    /* =====================================================
+       OTHER INPUTS
+    ===================================================== */
+
+    guestName.addEventListener(
+        "input",
+        updateSummary
+    );
+
+    adults.addEventListener(
+        "change",
+        updateSummary
+    );
+
+    children.addEventListener(
+        "change",
+        updateSummary
+    );
+
+
+    /* =====================================================
+       ROOM
+    ===================================================== */
+
+    roomInputs.forEach(function(room) {
+
+        room.addEventListener(
+            "change",
+            updateSummary
+        );
+
+    });
+
+
+    /* =====================================================
+       SERVICES
+    ===================================================== */
+
+    serviceInputs.forEach(function(service) {
+
+        service.addEventListener(
+            "change",
+            updateSummary
+        );
+
+    });
+
+
+    /* =====================================================
+       BOOKING BUTTON
+    ===================================================== */
+
+    document
+        .getElementById("bookButton")
+        .addEventListener(
+            "click",
+            function() {
+
+
+                /* VALIDATION */
+
+                if (!guestName.value) {
+
+                    alert(
+                        "Please enter your full name."
+                    );
+
+                    guestName.focus();
+
+                    return;
+
+                }
+
+
+                if (!guestPhone.value) {
+
+                    alert(
+                        "Please enter your phone number."
+                    );
+
+                    guestPhone.focus();
+
+                    return;
+
+                }
+
+
+                if (!checkIn.value ||
+                    !checkOut.value) {
+
+                    alert(
+                        "Please select your check-in and check-out dates."
+                    );
+
+                    return;
+
+                }
+
+
+                const nights =
+                    calculateNights();
+
+
+                if (nights <= 0) {
+
+                    alert(
+                        "Check-out must be after check-in."
+                    );
+
+                    return;
+
+                }
+
+
+                /* ROOM */
+
+                const selectedRoom =
+                    document.querySelector(
+                        'input[name="room"]:checked'
+                    );
+
+
+                const roomName =
+                    selectedRoom.dataset.room;
+
+
+                const roomPrice =
+                    Number(selectedRoom.value);
+
+
+                /* SERVICES */
+
+                let services = [];
+
+                let serviceTotal = 0;
+
+
+                serviceInputs.forEach(function(service) {
+
+                    if (service.checked) {
+
+                        services.push(
+                            service.dataset.service
+                        );
+
+                        serviceTotal +=
+                            Number(service.value);
+
+                    }
+
+                });
+
+
+                /* TOTAL */
+
+                const total =
+                    (roomPrice * nights)
+                    + serviceTotal;
+
+
+                /* MESSAGE */
+
+                const message =
+
+`Hello Triple Guest House 👋
+
+I would like to make a booking.
+
+━━━━━━━━━━━━━━━━━━
+GUEST DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Name: ${guestName.value}
+Phone: ${guestPhone.value}
+Email: ${guestEmail.value || "Not provided"}
+
+━━━━━━━━━━━━━━━━━━
+STAY DETAILS
+━━━━━━━━━━━━━━━━━━
+
+Check-in: ${checkIn.value}
+Check-out: ${checkOut.value}
+Nights: ${nights}
+
+Adults: ${adults.value}
+Children: ${children.value}
+
+━━━━━━━━━━━━━━━━━━
+ROOM
+━━━━━━━━━━━━━━━━━━
+
+Room: ${roomName}
+Price: ${formatMoney(roomPrice)} / night
+
+━━━━━━━━━━━━━━━━━━
+WELLNESS
+━━━━━━━━━━━━━━━━━━
+
+Services: ${
+    services.length
+    ? services.join(", ")
+    : "None"
+}
+
+━━━━━━━━━━━━━━━━━━
+ESTIMATED TOTAL
+━━━━━━━━━━━━━━━━━━
+
+${formatMoney(total)}
+
+I would like to confirm availability and complete my reservation.
+
+Thank you.
+Triple Guest House`;
+
+
+                /* WHATSAPP NUMBER */
+
+                const whatsappNumber =
+                    "250XXXXXXXXX";
+
+
+                const whatsappURL =
+                    "https://wa.me/" +
+                    whatsappNumber +
+                    "?text=" +
+                    encodeURIComponent(message);
+
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+            }
+        );
+
+
+    /* INITIAL */
+
+    updateSummary();
+
+</script>
+
+
+</body>
+
+</html>

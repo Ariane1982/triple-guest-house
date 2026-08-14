@@ -1,0 +1,2001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gallery | Triple Guest House</title>
+
+    <meta name="description"
+          content="Explore the rooms, facilities, sauna, massage and beautiful spaces at Triple Guest House.">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =====================================================
+           GLOBAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #26372e;
+            background: #fff;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 25px 0;
+            transition: .3s ease;
+        }
+
+        .navbar.scrolled {
+            position: fixed;
+            background: #123c2a;
+            padding: 15px 0;
+            box-shadow: 0 5px 25px rgba(0,0,0,.15);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo strong {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            letter-spacing: 2px;
+        }
+
+        .logo small {
+            font-size: 7px;
+            letter-spacing: 4px;
+            margin-top: 6px;
+            color: #bde3cc;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #bde3cc;
+        }
+
+        .nav-book {
+            background: #2f8055;
+            color: #fff;
+            padding: 13px 22px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            transition: .3s;
+        }
+
+        .nav-book:hover {
+            background: #fff;
+            color: #123c2a;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 23px;
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           PAGE HERO
+        ===================================================== */
+
+        .page-hero {
+            height: 560px;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    rgba(8,40,27,.80),
+                    rgba(8,40,27,.60)
+                ),
+                url("images/a.webp")
+                center/cover;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: #fff;
+        }
+
+        .page-hero-content {
+            padding-top: 70px;
+        }
+
+        .page-label {
+            color: #bde3cc;
+            font-size: 11px;
+            letter-spacing: 4px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .page-hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(50px, 7vw, 78px);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #dce9e2;
+            font-size: 14px;
+            line-height: 1.9;
+        }
+
+        .breadcrumb {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #c7d9cf;
+        }
+
+        .breadcrumb a {
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           GALLERY INTRO
+        ===================================================== */
+
+        .gallery-section {
+            padding: 100px 0;
+        }
+
+        .gallery-intro {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            display: block;
+            color: #2f8055;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            color: #123c2a;
+            font-size: clamp(38px, 5vw, 58px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: #2f8055;
+        }
+
+        .gallery-intro p {
+            max-width: 650px;
+            margin: auto;
+            color: #718078;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+
+        /* =====================================================
+           FILTER BUTTONS
+        ===================================================== */
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            border: 1px solid #dbe7df;
+            background: #fff;
+            color: #52635a;
+            padding: 12px 22px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #123c2a;
+            border-color: #123c2a;
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           FEATURED GALLERY
+        ===================================================== */
+
+        .featured-gallery {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            height: 620px;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            background: #e8eee9;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .7s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+
+        .featured-side {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+        }
+
+
+        /* =====================================================
+           GALLERY OVERLAY
+        ===================================================== */
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(5,25,17,.75),
+                    rgba(5,25,17,0)
+                );
+
+            opacity: 0;
+            transition: .4s;
+
+            display: flex;
+            align-items: flex-end;
+            padding: 30px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .overlay-content {
+            color: #fff;
+            transform: translateY(15px);
+            transition: .4s;
+        }
+
+        .gallery-item:hover .overlay-content {
+            transform: translateY(0);
+        }
+
+        .overlay-content span {
+            display: block;
+            font-size: 9px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #bde3cc;
+            margin-bottom: 7px;
+        }
+
+        .overlay-content h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+        }
+
+        .zoom-icon {
+            position: absolute;
+            right: 25px;
+            bottom: 25px;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 50%;
+            background: #fff;
+            color: #123c2a;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+           MASONRY STYLE GRID
+        ===================================================== */
+
+        .gallery-grid {
+            columns: 3 280px;
+            column-gap: 10px;
+        }
+
+        .gallery-grid .gallery-item {
+            height: 390px;
+            margin-bottom: 10px;
+            break-inside: avoid;
+        }
+
+        .gallery-grid .gallery-item.tall {
+            height: 520px;
+        }
+
+        .gallery-grid .gallery-item.short {
+            height: 300px;
+        }
+
+
+        /* =====================================================
+           HIDDEN ITEMS
+        ===================================================== */
+
+        .gallery-item.hide {
+            display: none;
+        }
+
+
+        /* =====================================================
+           LIGHTBOX
+        ===================================================== */
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(4,20,13,.94);
+
+            z-index: 99999;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 85vh;
+            width: auto;
+            object-fit: contain;
+
+            box-shadow: 0 20px 70px rgba(0,0,0,.4);
+        }
+
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
+            position: fixed;
+
+            width: 48px;
+            height: 48px;
+
+            border: 1px solid rgba(255,255,255,.3);
+
+            background: rgba(255,255,255,.08);
+
+            color: #fff;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .lightbox-close:hover,
+        .lightbox-prev:hover,
+        .lightbox-next:hover {
+            background: #2f8055;
+            border-color: #2f8055;
+        }
+
+        .lightbox-close {
+            top: 25px;
+            right: 30px;
+        }
+
+        .lightbox-prev {
+            left: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-next {
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .lightbox-caption {
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            color: #fff;
+
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+        }
+
+
+        /* =====================================================
+           EXPERIENCE BANNER
+        ===================================================== */
+
+        .experience-banner {
+            margin-top: 80px;
+
+            min-height: 420px;
+
+            background:
+                linear-gradient(
+                    rgba(9,45,30,.82),
+                    rgba(9,45,30,.82)
+                ),
+                url("images/sauna.jpg")
+                center/cover;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+            color: #fff;
+        }
+
+        .experience-banner-content {
+            max-width: 700px;
+            padding: 50px 20px;
+        }
+
+        .experience-banner .section-label {
+            color: #bde3cc;
+        }
+
+        .experience-banner h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 58px);
+            margin-bottom: 15px;
+        }
+
+        .experience-banner p {
+            color: #d2e0d8;
+            font-size: 13px;
+            line-height: 1.9;
+            margin-bottom: 30px;
+        }
+
+        .book-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+
+            background: #fff;
+            color: #123c2a;
+
+            padding: 15px 28px;
+
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+
+            transition: .3s;
+        }
+
+        .book-btn:hover {
+            background: #2f8055;
+            color: #fff;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #0c2c1e;
+            color: #fff;
+            padding-top: 70px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 50px;
+            padding-bottom: 50px;
+        }
+
+        .footer-brand p {
+            color: #aebfb5;
+            font-size: 12px;
+            line-height: 1.8;
+            max-width: 300px;
+            margin: 20px 0;
+        }
+
+        .footer-title {
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: #aebfb5;
+            font-size: 12px;
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: #bde3cc;
+        }
+
+        .footer-contact p {
+            color: #aebfb5;
+            font-size: 12px;
+            margin-bottom: 13px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: #bde3cc;
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+        }
+
+        .socials a {
+            width: 35px;
+            height: 35px;
+
+            border: 1px solid #31523f;
+
+            color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 12px;
+
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            background: #2f8055;
+            border-color: #2f8055;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #254334;
+            padding: 20px 0;
+
+            text-align: center;
+
+            color: #82958a;
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 25px;
+            bottom: 25px;
+
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+            color: #fff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+
+            z-index: 9998;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,.2);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 1000px) {
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .featured-gallery {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .featured-gallery > .gallery-item {
+                height: 500px;
+            }
+
+            .featured-side {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 300px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media(max-width: 700px) {
+
+            .nav-links,
+            .nav-book {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links.mobile-open {
+
+                position: absolute;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+                top: 80px;
+
+                left: 5%;
+
+                width: 90%;
+
+                background: #123c2a;
+
+                padding: 25px;
+            }
+
+            .page-hero {
+                height: 500px;
+            }
+
+            .featured-gallery > .gallery-item {
+                height: 400px;
+            }
+
+            .featured-side {
+                grid-template-columns: 1fr;
+                grid-template-rows: 280px 280px;
+            }
+
+            .gallery-grid {
+                columns: 1;
+            }
+
+            .gallery-grid .gallery-item,
+            .gallery-grid .gallery-item.tall,
+            .gallery-grid .gallery-item.short {
+                height: 400px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lightbox {
+                padding: 20px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar" id="navbar">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+
+            <strong>TRIPLE</strong>
+
+            <small>GUEST HOUSE</small>
+
+        </a>
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="gallery.html" class="active">
+                Gallery
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </nav>
+
+
+        <a href="booking.html" class="nav-book">
+
+            Book Now
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <button class="menu-btn" id="menuBtn">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="page-hero">
+
+    <div class="page-hero-content">
+
+        <div class="page-label">
+            EXPERIENCE TRIPLE
+        </div>
+
+        <h1>
+            Our Gallery
+        </h1>
+
+        <p>
+            Take a visual journey through the spaces,
+            comfort and experiences waiting for you
+            at Triple Guest House.
+        </p>
+
+        <div class="breadcrumb">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            &nbsp; / &nbsp;
+
+            Gallery
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALLERY
+===================================================== -->
+
+<section class="gallery-section">
+
+    <div class="container">
+
+
+        <div class="gallery-intro">
+
+            <span class="section-label">
+                A GLIMPSE OF TRIPLE
+            </span>
+
+            <h2 class="section-title">
+
+                See Where
+                <span>You Belong.</span>
+
+            </h2>
+
+            <p>
+                Explore our rooms, beautiful spaces and
+                wellness facilities. Every image tells part
+                of the Triple Guest House experience.
+            </p>
+
+        </div>
+
+
+
+        <!-- FILTERS -->
+
+        <div class="filters">
+
+            <button class="filter-btn active"
+                    data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="rooms">
+                Rooms
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="exterior">
+                Exterior
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="wellness">
+                Wellness
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="dining">
+                Dining
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="experience">
+                Experience
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FEATURED GALLERY
+        ================================================= -->
+
+        <div class="featured-gallery">
+
+
+            <div class="gallery-item"
+                 data-category="rooms"
+                 data-title="Elegant Guest Room"
+                 data-image="images/room-1.jpg">
+
+                <img src="images/6.jfif"
+                     alt="Triple Guest House Room">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Rooms
+                        </span>
+
+                        <h3>
+                            Elegant Guest Room
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+
+                        <i class="fa-solid fa-expand"></i>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="featured-side">
+
+
+                <div class="gallery-item"
+                     data-category="exterior"
+                     data-title="Triple Guest House"
+                     data-image="images/exterior-1.jpg">
+
+                    <img src="images/3.jfif"
+                         alt="Guest House Exterior">
+
+                    <div class="gallery-overlay">
+
+                        <div class="overlay-content">
+
+                            <span>
+                                Exterior
+                            </span>
+
+                            <h3>
+                                Our Guest House
+                            </h3>
+
+                        </div>
+
+                        <div class="zoom-icon">
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="gallery-item"
+                     data-category="wellness"
+                     data-title="Relaxing Sauna"
+                     data-image="images/sauna.jpg">
+
+                    <img src="images/8.jfif"
+                         alt="Sauna">
+
+                    <div class="gallery-overlay">
+
+                        <div class="overlay-content">
+
+                            <span>
+                                Wellness
+                            </span>
+
+                            <h3>
+                                Relaxing Sauna
+                            </h3>
+
+                        </div>
+
+                        <div class="zoom-icon">
+
+                            <i class="fa-solid fa-expand"></i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             MORE GALLERY
+        ================================================= -->
+
+        <div class="gallery-grid">
+
+
+            <!-- ROOM -->
+
+            <div class="gallery-item tall"
+                 data-category="rooms"
+                 data-title="Comfortable Bedroom"
+                 data-image="images/4.jpg">
+
+                <img src="images/4.jfif"
+                     alt="Comfortable Bedroom">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Rooms
+                        </span>
+
+                        <h3>
+                            Comfortable Bedroom
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ROOM -->
+
+            <div class="gallery-item"
+                 data-category="rooms"
+                 data-title="Modern Room"
+                 data-image="images/room-3.jpg">
+
+                <img src="images/8.jfif"
+                     alt="Modern Guest Room">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Rooms
+                        </span>
+
+                        <h3>
+                            Modern Room
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MASSAGE -->
+
+            <div class="gallery-item short"
+                 data-category="wellness"
+                 data-title="Massage Experience"
+                 data-image="images/massage.jpg">
+
+                <img src="images/7.jfif"
+                     alt="Massage">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Wellness
+                        </span>
+
+                        <h3>
+                            Massage Experience
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXTERIOR -->
+
+            <div class="gallery-item"
+                 data-category="exterior"
+                 data-title="Beautiful Exterior"
+                 data-image="images/exterior-2.jpg">
+
+                <img src="images/6.jfif"
+                     alt="Guest House Exterior">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Exterior
+                        </span>
+
+                        <h3>
+                            Beautiful Exterior
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DINING -->
+
+            <div class="gallery-item tall"
+                 data-category="dining"
+                 data-title="Dining Experience"
+                 data-image="images/dining.jpg">
+
+                <img src="images/5.jfif"
+                     alt="Dining Area">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Dining
+                        </span>
+
+                        <h3>
+                            Dining Experience
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="gallery-item"
+                 data-category="experience"
+                 data-title="A Peaceful Stay"
+                 data-image="images/experience-1.jpg">
+
+                <img src="images/4.jfif"
+                     alt="Guest Experience">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Experience
+                        </span>
+
+                        <h3>
+                            A Peaceful Stay
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXTERIOR -->
+
+            <div class="gallery-item short"
+                 data-category="exterior"
+                 data-title="Green Surroundings"
+                 data-image="images/exterior-3.jpg">
+
+                <img src="images/3.jfif"
+                     alt="Guest House Surroundings">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Exterior
+                        </span>
+
+                        <h3>
+                            Green Surroundings
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- WELLNESS -->
+
+            <div class="gallery-item"
+                 data-category="wellness"
+                 data-title="Wellness & Relaxation"
+                 data-image="images/wellness.jpg">
+
+                <img src="images/2.jfif"
+                     alt="Wellness">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Wellness
+                        </span>
+
+                        <h3>
+                            Wellness & Relaxation
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="gallery-item tall"
+                 data-category="experience"
+                 data-title="Your Home Away From Home"
+                 data-image="images/experience-2.jpg">
+
+                <img src="images/1.jfif"
+                     alt="Guest Experience">
+
+                <div class="gallery-overlay">
+
+                    <div class="overlay-content">
+
+                        <span>
+                            Experience
+                        </span>
+
+                        <h3>
+                            Your Home Away From Home
+                        </h3>
+
+                    </div>
+
+                    <div class="zoom-icon">
+                        <i class="fa-solid fa-expand"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             BANNER
+        ================================================= -->
+
+        <div class="experience-banner">
+
+            <div class="experience-banner-content">
+
+                <span class="section-label">
+                    EXPERIENCE IT YOURSELF
+                </span>
+
+                <h2>
+                    Pictures Are Only The Beginning.
+                </h2>
+
+                <p>
+                    Come experience the comfort, peaceful
+                    surroundings and wellness services of
+                    Triple Guest House in person.
+                </p>
+
+                <a href="booking.html"
+                   class="book-btn">
+
+                    Book Your Stay
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div class="lightbox" id="lightbox">
+
+    <button class="lightbox-close"
+            id="lightboxClose">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+
+    <button class="lightbox-prev"
+            id="lightboxPrev">
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+    </button>
+
+
+    <img src=""
+         alt=""
+         class="lightbox-image"
+         id="lightboxImage">
+
+
+    <button class="lightbox-next"
+            id="lightboxNext">
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+
+
+    <div class="lightbox-caption"
+         id="lightboxCaption">
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html"
+               class="logo">
+
+                <strong>TRIPLE</strong>
+
+                <small>GUEST HOUSE</small>
+
+            </a>
+
+            <p>
+                Comfort, hospitality and relaxation.
+                Your peaceful stay starts here.
+            </p>
+
+            <div class="socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <h3 class="footer-title">
+                Quick Links
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="gallery.html">
+                    Gallery
+                </a>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+                <a href="booking.html">
+                    Book Now
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div>
+
+            <h3 class="footer-title">
+                Services
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="#">
+                    Accommodation
+                </a>
+
+                <a href="#">
+                    Sauna
+                </a>
+
+                <a href="#">
+                    Massage
+                </a>
+
+                <a href="booking.html">
+                    Reservations
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="footer-contact">
+
+            <h3 class="footer-title">
+                Contact
+            </h3>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Rwanda
+            </p>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +250 XXX XXX XXX
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                info@tripleguesthouse.com
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Triple Guest House.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a href="https://wa.me/250XXXXXXXXX"
+   class="whatsapp"
+   target="_blank">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+    /* =====================================================
+       NAVBAR
+    ===================================================== */
+
+    const navbar =
+        document.getElementById("navbar");
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 80) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+
+        navLinks.classList.toggle("mobile-open");
+
+    });
+
+
+
+    /* =====================================================
+       GALLERY FILTER
+    ===================================================== */
+
+    const filterButtons =
+        document.querySelectorAll(".filter-btn");
+
+    const galleryItems =
+        document.querySelectorAll(".gallery-item");
+
+
+    filterButtons.forEach(function(button) {
+
+        button.addEventListener("click", function() {
+
+            const filter =
+                this.getAttribute("data-filter");
+
+
+            filterButtons.forEach(function(btn) {
+
+                btn.classList.remove("active");
+
+            });
+
+
+            this.classList.add("active");
+
+
+            galleryItems.forEach(function(item) {
+
+                const category =
+                    item.getAttribute("data-category");
+
+
+                if (
+                    filter === "all" ||
+                    category === filter
+                ) {
+
+                    item.classList.remove("hide");
+
+                } else {
+
+                    item.classList.add("hide");
+
+                }
+
+            });
+
+        });
+
+    });
+
+
+
+    /* =====================================================
+       LIGHTBOX
+    ===================================================== */
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const lightboxImage =
+        document.getElementById("lightboxImage");
+
+    const lightboxCaption =
+        document.getElementById("lightboxCaption");
+
+    const closeButton =
+        document.getElementById("lightboxClose");
+
+    const previousButton =
+        document.getElementById("lightboxPrev");
+
+    const nextButton =
+        document.getElementById("lightboxNext");
+
+
+    let currentIndex = 0;
+
+
+    function getVisibleItems() {
+
+        return Array.from(galleryItems)
+            .filter(item =>
+                !item.classList.contains("hide")
+            );
+
+    }
+
+
+    function openLightbox(item) {
+
+        const visibleItems =
+            getVisibleItems();
+
+        currentIndex =
+            visibleItems.indexOf(item);
+
+        showImage();
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function showImage() {
+
+        const visibleItems =
+            getVisibleItems();
+
+        if (!visibleItems.length) return;
+
+
+        const item =
+            visibleItems[currentIndex];
+
+
+        const image =
+            item.getAttribute("data-image");
+
+
+        const title =
+            item.getAttribute("data-title");
+
+
+        lightboxImage.src = image;
+
+        lightboxImage.alt = title;
+
+        lightboxCaption.textContent = title;
+
+    }
+
+
+    galleryItems.forEach(function(item) {
+
+        item.addEventListener("click", function() {
+
+            openLightbox(this);
+
+        });
+
+    });
+
+
+
+    /* NEXT */
+
+    nextButton.addEventListener("click", function() {
+
+        const visibleItems =
+            getVisibleItems();
+
+        currentIndex++;
+
+        if (
+            currentIndex >=
+            visibleItems.length
+        ) {
+
+            currentIndex = 0;
+
+        }
+
+        showImage();
+
+    });
+
+
+
+    /* PREVIOUS */
+
+    previousButton.addEventListener("click", function() {
+
+        const visibleItems =
+            getVisibleItems();
+
+        currentIndex--;
+
+        if (currentIndex < 0) {
+
+            currentIndex =
+                visibleItems.length - 1;
+
+        }
+
+        showImage();
+
+    });
+
+
+
+    /* CLOSE */
+
+    closeButton.addEventListener("click", closeLightbox);
+
+
+    lightbox.addEventListener("click", function(event) {
+
+        if (event.target === lightbox) {
+
+            closeLightbox();
+
+        }
+
+    });
+
+
+    function closeLightbox() {
+
+        lightbox.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+
+    /* =====================================================
+       KEYBOARD CONTROLS
+    ===================================================== */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (!lightbox.classList.contains("active")) {
+            return;
+        }
+
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            nextButton.click();
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            previousButton.click();
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

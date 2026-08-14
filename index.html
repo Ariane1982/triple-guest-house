@@ -1,0 +1,2977 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Triple Guest House - Comfort, hospitality, sauna and massage.">
+
+    <title>Triple Guest House | Home</title>
+
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <!-- FONT AWESOME -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <style>
+
+        /* =====================================================
+           GENERAL
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: #26372e;
+            background: #ffffff;
+        }
+
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        .container {
+            width: min(1200px, 90%);
+            margin: auto;
+        }
+
+
+        .section {
+            padding: 100px 0;
+        }
+
+
+        .section-label {
+            display: block;
+
+            color: #2f8055;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+
+            color: #123c2a;
+
+            font-size: clamp(38px, 5vw, 56px);
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+
+        .section-title span {
+            color: #2f8055;
+        }
+
+
+        .section-text {
+            color: #6e7b74;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            max-width: 600px;
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+
+            z-index: 10000;
+
+            padding: 25px 0;
+
+            transition: 0.3s;
+        }
+
+
+        .navbar.scrolled {
+            position: fixed;
+
+            background: #123c2a;
+
+            padding: 15px 0;
+
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+        }
+
+
+        .nav-container {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            color: white;
+
+            display: flex;
+
+            flex-direction: column;
+
+            line-height: 1;
+        }
+
+
+        .logo strong {
+            font-family: "Playfair Display", serif;
+
+            font-size: 25px;
+
+            letter-spacing: 2px;
+        }
+
+
+        .logo small {
+            font-size: 7px;
+
+            letter-spacing: 4px;
+
+            margin-top: 6px;
+
+            color: #c9e8d5;
+        }
+
+
+        /* NAVIGATION */
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            gap: 38px;
+        }
+
+
+        .nav-links a {
+            color: white;
+
+            font-size: 13px;
+
+            font-weight: 400;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #bde3cc;
+        }
+
+
+        /* BOOK BUTTON */
+
+        .nav-book {
+            background: #2f8055;
+
+            color: white;
+
+            padding: 13px 22px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-book:hover {
+            background: #ffffff;
+
+            color: #123c2a;
+        }
+
+
+        /* MOBILE BUTTON */
+
+        .menu-btn {
+            display: none;
+
+            border: none;
+
+            background: transparent;
+
+            color: white;
+
+            font-size: 23px;
+
+            cursor: pointer;
+        }
+
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+
+            height: 100vh;
+
+            min-height: 650px;
+
+            overflow: hidden;
+
+            background: #123c2a;
+        }
+
+
+        /* SLIDES */
+
+        .slide {
+            position: absolute;
+
+            inset: 0;
+
+            background-size: cover;
+
+            background-position: center;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                opacity 1s ease,
+                visibility 1s ease;
+
+            z-index: 1;
+        }
+
+
+        .slide.active {
+            opacity: 1;
+
+            visibility: visible;
+
+            z-index: 2;
+
+            animation: zoom 6s ease forwards;
+        }
+
+
+        @keyframes zoom {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.07);
+            }
+
+        }
+
+
+        /* DARK OVERLAY */
+
+        .slide-overlay {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(7,36,24,0.90),
+                    rgba(7,36,24,0.58),
+                    rgba(7,36,24,0.18)
+                );
+        }
+
+
+        /* HERO CONTENT */
+
+        .hero-content {
+            position: relative;
+
+            z-index: 5;
+
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            color: white;
+
+            padding-top: 70px;
+        }
+
+
+        .hero-small {
+            color: #bde3cc;
+
+            font-size: 11px;
+
+            font-weight: 500;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .hero-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(48px, 6vw, 78px);
+
+            line-height: 1.05;
+
+            max-width: 800px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .hero-title span {
+            color: #bde3cc;
+        }
+
+
+        .hero-description {
+            max-width: 570px;
+
+            font-size: 15px;
+
+            font-weight: 300;
+
+            line-height: 1.8;
+
+            color: #edf5f0;
+
+            margin-bottom: 35px;
+        }
+
+
+        .hero-buttons {
+            display: flex;
+
+            gap: 14px;
+        }
+
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            padding: 15px 25px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-green {
+            background: #2f8055;
+
+            color: white;
+        }
+
+
+        .btn-green:hover {
+            background: white;
+
+            color: #123c2a;
+        }
+
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.7);
+
+            color: white;
+        }
+
+
+        .btn-outline:hover {
+            background: white;
+
+            color: #123c2a;
+        }
+
+
+        /* HERO ARROWS */
+
+        .hero-arrow {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 52px;
+
+            height: 52px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.7);
+
+            background: rgba(18,60,42,0.65);
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            cursor: pointer;
+
+            z-index: 100;
+
+            transition: 0.3s;
+        }
+
+
+        .hero-arrow:hover {
+            background: #2f8055;
+
+            border-color: #2f8055;
+        }
+
+
+        .hero-prev {
+            left: 30px;
+        }
+
+
+        .hero-next {
+            right: 30px;
+        }
+
+
+        /* DOTS */
+
+        .hero-dots {
+            position: absolute;
+
+            z-index: 100;
+
+            bottom: 40px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            gap: 8px;
+        }
+
+
+        .hero-dot {
+            width: 30px;
+
+            height: 3px;
+
+            border: none;
+
+            background: rgba(255,255,255,0.45);
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .hero-dot.active {
+            width: 55px;
+
+            background: #bde3cc;
+        }
+
+
+
+        /* =====================================================
+           BOOKING BAR
+        ===================================================== */
+
+        .booking-bar {
+            position: relative;
+
+            margin-top: -55px;
+
+            z-index: 500;
+        }
+
+
+        .booking-box {
+            background: white;
+
+            box-shadow: 0 15px 50px rgba(18,60,42,0.13);
+
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr
+                1fr
+                1fr
+                auto;
+
+            align-items: center;
+        }
+
+
+        .booking-field {
+            padding: 25px;
+
+            border-right: 1px solid #e5ece8;
+        }
+
+
+        .booking-field label {
+            display: block;
+
+            color: #89958e;
+
+            font-size: 9px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 7px;
+        }
+
+
+        .booking-field strong {
+            color: #123c2a;
+
+            font-size: 13px;
+        }
+
+
+        .booking-submit {
+            height: 100%;
+
+            min-width: 150px;
+
+            border: none;
+
+            background: #2f8055;
+
+            color: white;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .booking-submit:hover {
+            background: #123c2a;
+        }
+
+
+
+        /* =====================================================
+           WELCOME
+        ===================================================== */
+
+        .welcome-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+
+        .welcome-image {
+            position: relative;
+
+            padding-right: 30px;
+        }
+
+
+        .welcome-image img {
+            height: 560px;
+
+            object-fit: cover;
+        }
+
+
+        .image-badge {
+            position: absolute;
+
+            right: 0;
+
+            bottom: 35px;
+
+            background: #2f8055;
+
+            color: white;
+
+            padding: 25px 30px;
+
+            text-align: center;
+        }
+
+
+        .image-badge strong {
+            display: block;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+        }
+
+
+        .image-badge small {
+            font-size: 8px;
+
+            letter-spacing: 3px;
+        }
+
+
+        .welcome-content p {
+            color: #6e7b74;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin: 15px 0;
+        }
+
+
+        .welcome-list {
+            margin: 30px 0;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .welcome-list div {
+            display: flex;
+
+            gap: 10px;
+
+            align-items: center;
+
+            color: #345743;
+
+            font-size: 12px;
+        }
+
+
+        .welcome-list i {
+            color: #2f8055;
+        }
+
+
+
+        /* =====================================================
+           VIDEO
+        ===================================================== */
+
+        .video-section {
+            background: #f1f7f3;
+        }
+
+
+        .video-grid {
+            display: grid;
+
+            grid-template-columns: 0.85fr 1.15fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .video-text p {
+            color: #6e7b74;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+
+            margin-bottom: 25px;
+        }
+
+
+        .video-box {
+            position: relative;
+
+            height: 430px;
+
+            overflow: hidden;
+
+            background: #123c2a;
+        }
+
+
+        .video-box img {
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 0.75;
+        }
+
+
+        .video-play {
+            position: absolute;
+
+            top: 50%;
+
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+
+            width: 75px;
+
+            height: 75px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #2f8055;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 20px;
+
+            transition: 0.3s;
+        }
+
+
+        .video-play:hover {
+            background: #2f8055;
+
+            color: white;
+
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+
+
+        /* =====================================================
+           ROOMS
+        ===================================================== */
+
+        .rooms-heading {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 45px;
+        }
+
+
+        .rooms-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+
+        .room-card {
+            background: white;
+
+            border: 1px solid #e4ebe7;
+
+            overflow: hidden;
+
+            transition: 0.35s;
+        }
+
+
+        .room-card:hover {
+            transform: translateY(-7px);
+
+            box-shadow: 0 20px 45px rgba(18,60,42,0.12);
+        }
+
+
+        .room-image {
+            height: 280px;
+
+            overflow: hidden;
+        }
+
+
+        .room-image img {
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+
+        .room-card:hover .room-image img {
+            transform: scale(1.06);
+        }
+
+
+        .room-info {
+            padding: 25px;
+        }
+
+
+        .room-info h3 {
+            font-family: "Playfair Display", serif;
+
+            color: #123c2a;
+
+            font-size: 24px;
+
+            margin-bottom: 8px;
+        }
+
+
+        .room-info p {
+            color: #748078;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            margin-bottom: 18px;
+        }
+
+
+        .room-bottom {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-top: 1px solid #e5ece8;
+
+            padding-top: 18px;
+        }
+
+
+        .room-bottom span {
+            color: #2f8055;
+
+            font-size: 11px;
+
+            font-weight: 600;
+        }
+
+
+        .room-link {
+            color: #123c2a;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+        }
+
+
+
+        /* =====================================================
+           WELLNESS
+        ===================================================== */
+
+        .wellness {
+            background: #123c2a;
+
+            color: white;
+        }
+
+
+        .wellness-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+
+        .wellness-images {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+
+        .wellness-images img {
+            height: 450px;
+
+            object-fit: cover;
+        }
+
+
+        .wellness-images img:last-child {
+            margin-top: 60px;
+
+            height: 390px;
+        }
+
+
+        .wellness-content .section-label {
+            color: #bde3cc;
+        }
+
+
+        .wellness-content .section-title {
+            color: white;
+        }
+
+
+        .wellness-content .section-text {
+            color: #cbd9d1;
+
+            margin-bottom: 30px;
+        }
+
+
+        .wellness-item {
+            display: flex;
+
+            gap: 18px;
+
+            margin: 25px 0;
+        }
+
+
+        .wellness-icon {
+            min-width: 50px;
+
+            height: 50px;
+
+            border-radius: 50%;
+
+            background: #2f8055;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .wellness-item h3 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 21px;
+
+            margin-bottom: 5px;
+        }
+
+
+        .wellness-item p {
+            color: #bfd0c6;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+
+        /* =====================================================
+           WHY CHOOSE US
+        ===================================================== */
+
+        .why {
+            background: #f4f8f5;
+        }
+
+
+        .why-heading {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+
+        .why-heading .section-text {
+            margin: auto;
+        }
+
+
+        .why-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .why-card {
+            background: white;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border: 1px solid #e3ebe6;
+
+            transition: 0.3s;
+        }
+
+
+        .why-card:hover {
+            background: #123c2a;
+
+            color: white;
+
+            transform: translateY(-5px);
+        }
+
+
+        .why-icon {
+            width: 60px;
+
+            height: 60px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #dff0e6;
+
+            color: #2f8055;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 19px;
+        }
+
+
+        .why-card h3 {
+            font-family: "Playfair Display", serif;
+
+            color: #123c2a;
+
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .why-card p {
+            color: #748078;
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        .why-card:hover h3 {
+            color: white;
+        }
+
+
+        .why-card:hover p {
+            color: #c6d7cd;
+        }
+
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+            position: relative;
+
+            padding: 110px 0;
+
+            background:
+                linear-gradient(
+                    rgba(8,42,28,0.84),
+                    rgba(8,42,28,0.84)
+                ),
+                url("images/hero-2.jpg")
+                center/cover;
+
+            text-align: center;
+
+            color: white;
+        }
+
+
+        .cta .section-label {
+            color: #bde3cc;
+        }
+
+
+        .cta h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(40px, 5vw, 60px);
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta p {
+            color: #d2e0d8;
+
+            font-size: 14px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .cta .btn {
+            background: white;
+
+            color: #123c2a;
+        }
+
+
+        .cta .btn:hover {
+            background: #2f8055;
+
+            color: white;
+        }
+
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: #0c2c1e;
+
+            color: white;
+
+            padding-top: 70px;
+        }
+
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                1fr
+                1fr
+                1.2fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+        }
+
+
+        .footer-brand p {
+            color: #aebfb5;
+
+            font-size: 12px;
+
+            line-height: 1.8;
+
+            max-width: 300px;
+
+            margin: 20px 0;
+        }
+
+
+        .footer-title {
+            font-family: "Playfair Display", serif;
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .footer-links {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+
+        .footer-links a {
+            color: #aebfb5;
+
+            font-size: 12px;
+
+            transition: 0.3s;
+        }
+
+
+        .footer-links a:hover {
+            color: #bde3cc;
+        }
+
+
+        .footer-contact p {
+            color: #aebfb5;
+
+            font-size: 12px;
+
+            margin-bottom: 13px;
+
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .footer-contact i {
+            color: #bde3cc;
+        }
+
+
+        .socials {
+            display: flex;
+
+            gap: 10px;
+        }
+
+
+        .socials a {
+            width: 35px;
+
+            height: 35px;
+
+            border: 1px solid #31523f;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 12px;
+
+            transition: 0.3s;
+        }
+
+
+        .socials a:hover {
+            background: #2f8055;
+
+            border-color: #2f8055;
+        }
+
+
+        .footer-bottom {
+            border-top: 1px solid #254334;
+
+            padding: 20px 0;
+
+            text-align: center;
+
+            color: #82958a;
+
+            font-size: 10px;
+        }
+
+
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 25px;
+
+            width: 55px;
+
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            color: white;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 25px;
+
+            z-index: 9999;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 20px;
+            }
+
+
+            .booking-box {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .booking-submit {
+                height: 60px;
+            }
+
+
+            .welcome-grid,
+            .video-grid,
+            .wellness-grid {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+            }
+
+
+            .rooms-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+
+        @media (max-width: 700px) {
+
+            .nav-links,
+            .nav-book {
+                display: none;
+            }
+
+
+            .menu-btn {
+                display: block;
+            }
+
+
+            .nav-links.mobile-open {
+                position: absolute;
+
+                display: flex;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+
+                top: 80px;
+
+                left: 5%;
+
+                width: 90%;
+
+                background: #123c2a;
+
+                padding: 25px;
+
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            }
+
+
+            .hero {
+                min-height: 650px;
+            }
+
+
+            .hero-title {
+                font-size: 45px;
+            }
+
+
+            .hero-description {
+                font-size: 13px;
+            }
+
+
+            .hero-arrow {
+                width: 42px;
+
+                height: 42px;
+            }
+
+
+            .hero-prev {
+                left: 15px;
+            }
+
+
+            .hero-next {
+                right: 15px;
+            }
+
+
+            .booking-bar {
+                margin-top: 0;
+
+                padding: 20px 0;
+
+                background: #f4f8f5;
+            }
+
+
+            .booking-box {
+                grid-template-columns: 1fr;
+            }
+
+
+            .booking-field {
+                border-right: none;
+
+                border-bottom: 1px solid #e5ece8;
+            }
+
+
+            .welcome-image img {
+                height: 400px;
+            }
+
+
+            .welcome-list {
+                grid-template-columns: 1fr;
+            }
+
+
+            .rooms-heading {
+                display: block;
+            }
+
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .wellness-images {
+                grid-template-columns: 1fr 1fr;
+            }
+
+
+            .wellness-images img {
+                height: 300px;
+            }
+
+
+            .wellness-images img:last-child {
+                height: 260px;
+
+                margin-top: 40px;
+            }
+
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar" id="navbar">
+
+    <div class="container nav-container">
+
+
+        <a href="index.html" class="logo">
+
+            <strong>TRIPLE</strong>
+
+            <small>GUEST HOUSE</small>
+
+        </a>
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="index.html" class="active">
+                Home
+            </a>
+
+            <a href="about.html">
+                About Us
+            </a>
+
+            <a href="gallery.html">
+                Gallery
+            </a>
+
+            <a href="contact.html">
+                Contact Us
+            </a>
+
+        </nav>
+
+
+        <a href="booking.html" class="nav-book">
+
+            Book Now
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
+        <button class="menu-btn"
+                id="menuBtn"
+                type="button">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO SLIDER
+===================================================== -->
+
+<section class="hero">
+
+
+    <!-- SLIDE 1 -->
+
+    <div class="slide active"
+         style="background-image:url('images/a.webp');">
+
+        <div class="slide-overlay"></div>
+
+        <div class="container hero-content">
+
+            <span class="hero-small">
+                WELCOME TO TRIPLE GUEST HOUSE
+            </span>
+
+            <h1 class="hero-title">
+
+                A Place To Rest.<br>
+
+                A Place To Feel
+                <span>At Home.</span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                Experience comfort, warm hospitality and
+                peaceful relaxation in a beautiful environment.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="booking.html"
+                   class="btn btn-green">
+
+                    Book Your Stay
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                <a href="about.html"
+                   class="btn btn-outline">
+
+                    Discover More
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 2 -->
+
+    <div class="slide"
+         style="background-image:url('images/2.jfif');">
+
+        <div class="slide-overlay"></div>
+
+        <div class="container hero-content">
+
+            <span class="hero-small">
+                RELAX • REFRESH • RECONNECT
+            </span>
+
+            <h1 class="hero-title">
+
+                Relax Your Body.<br>
+
+                Refresh Your
+                <span>Mind.</span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                Enjoy our sauna and massage experiences
+                designed to make your stay even more special.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#wellness"
+                   class="btn btn-green">
+
+                    Explore Wellness
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                <a href="booking.html"
+                   class="btn btn-outline">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- SLIDE 3 -->
+
+    <div class="slide"
+         style="background-image:url('images/3.jfif');">
+
+        <div class="slide-overlay"></div>
+
+        <div class="container hero-content">
+
+            <span class="hero-small">
+                COMFORT • HOSPITALITY • WELLNESS
+            </span>
+
+            <h1 class="hero-title">
+
+                Your Comfortable<br>
+
+                Stay Starts
+                <span>Here.</span>
+
+            </h1>
+
+            <p class="hero-description">
+
+                Discover a welcoming guest house created
+                for unforgettable stays.
+
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#rooms"
+                   class="btn btn-green">
+
+                    Explore Rooms
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+                <a href="booking.html"
+                   class="btn btn-outline">
+
+                    Book Now
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PREVIOUS -->
+
+    <button class="hero-arrow hero-prev"
+            id="heroPrev"
+            type="button"
+            aria-label="Previous slide">
+
+        <i class="fa-solid fa-chevron-left"></i>
+
+    </button>
+
+
+
+    <!-- NEXT -->
+
+    <button class="hero-arrow hero-next"
+            id="heroNext"
+            type="button"
+            aria-label="Next slide">
+
+        <i class="fa-solid fa-chevron-right"></i>
+
+    </button>
+
+
+
+    <!-- DOTS -->
+
+    <div class="hero-dots">
+
+        <button class="hero-dot active"
+                type="button"
+                data-slide="0"></button>
+
+        <button class="hero-dot"
+                type="button"
+                data-slide="1"></button>
+
+        <button class="hero-dot"
+                type="button"
+                data-slide="2"></button>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     BOOKING BAR
+===================================================== -->
+
+<section class="booking-bar">
+
+    <div class="container">
+
+        <div class="booking-box">
+
+            <div class="booking-field">
+
+                <label>
+                    Check In
+                </label>
+
+                <strong>
+                    Select Date
+                </strong>
+
+            </div>
+
+
+            <div class="booking-field">
+
+                <label>
+                    Check Out
+                </label>
+
+                <strong>
+                    Select Date
+                </strong>
+
+            </div>
+
+
+            <div class="booking-field">
+
+                <label>
+                    Guests
+                </label>
+
+                <strong>
+                    2 Adults
+                </strong>
+
+            </div>
+
+
+            <div class="booking-field">
+
+                <label>
+                    Room
+                </label>
+
+                <strong>
+                    Select Room
+                </strong>
+
+            </div>
+
+
+            <button class="booking-submit"
+                    onclick="window.location.href='booking.html'">
+
+                Check Availability
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WELCOME
+===================================================== -->
+
+<section class="section">
+
+    <div class="container welcome-grid">
+
+
+        <div class="welcome-image">
+
+            <img src="images/7.jfif"
+                 alt="Triple Guest House">
+
+            <div class="image-badge">
+
+                <strong>TRIPLE</strong>
+
+                <small>GUEST HOUSE</small>
+
+            </div>
+
+        </div>
+
+
+        <div class="welcome-content">
+
+            <span class="section-label">
+                WELCOME TO TRIPLE
+            </span>
+
+            <h2 class="section-title">
+
+                More Than A Stay.
+                <span>A Feeling.</span>
+
+            </h2>
+
+            <p>
+
+                Triple Guest House is a welcoming destination
+                created for guests looking for comfort,
+                peace and quality hospitality.
+
+            </p>
+
+            <p>
+
+                Whether you are travelling for business,
+                enjoying a holiday or simply taking time
+                to relax, we provide an environment where
+                you can rest and recharge.
+
+            </p>
+
+
+            <div class="welcome-list">
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    Comfortable Rooms
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    Warm Hospitality
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    Sauna
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-check"></i>
+                    Massage
+                </div>
+
+            </div>
+
+
+            <a href="about.html"
+               class="btn btn-green">
+
+                Discover Our Story
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VIDEO
+===================================================== -->
+
+<section class="section video-section">
+
+    <div class="container video-grid">
+
+
+        <div class="video-text">
+
+            <span class="section-label">
+                EXPERIENCE TRIPLE
+            </span>
+
+            <h2 class="section-title">
+
+                See The Place
+                <span>Before You Arrive.</span>
+
+            </h2>
+
+            <p>
+
+                Take a glimpse into the atmosphere,
+                accommodation and relaxing environment
+                waiting for you at Triple Guest House.
+
+            </p>
+
+            <a href="https://www.youtube.com/watch?v=eP8LpLeXMbk"
+               target="_blank"
+               class="btn btn-green">
+
+                Watch On YouTube
+
+                <i class="fa-brands fa-youtube"></i>
+
+            </a>
+
+        </div>
+
+
+        <div class="video-box">
+
+            <img src="images/7.jfif"
+                 alt="Triple Guest House Video">
+
+            <a href="https://www.youtube.com/watch?v=eP8LpLeXMbk"
+               target="_blank"
+               class="video-play">
+
+                <i class="fa-solid fa-play"></i>
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ROOMS
+===================================================== -->
+
+<section class="section"
+         id="rooms">
+
+    <div class="container">
+
+
+        <div class="rooms-heading">
+
+            <div>
+
+                <span class="section-label">
+                    ACCOMMODATION
+                </span>
+
+                <h2 class="section-title">
+
+                    Rooms Designed
+                    <span>For Comfort.</span>
+
+                </h2>
+
+            </div>
+
+
+            <a href="booking.html"
+               class="btn btn-green">
+
+                Book A Room
+
+            </a>
+
+        </div>
+
+
+
+        <div class="rooms-grid">
+
+
+            <div class="room-card">
+
+                <div class="room-image">
+
+                    <img src="images/9.jfif"
+                         alt="Standard Room">
+
+                </div>
+
+                <div class="room-info">
+
+                    <h3>
+                        Standard Room
+                    </h3>
+
+                    <p>
+                        A comfortable and welcoming space
+                        for a relaxing stay.
+                    </p>
+
+                    <div class="room-bottom">
+
+                        <span>
+                            Comfortable Stay
+                        </span>
+
+                        <a href="booking.html"
+                           class="room-link">
+
+                            Book Now →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="room-card">
+
+                <div class="room-image">
+
+                    <img src="images/10.jfif"
+                         alt="Deluxe Room">
+
+                </div>
+
+                <div class="room-info">
+
+                    <h3>
+                        Deluxe Room
+                    </h3>
+
+                    <p>
+                        Enjoy additional space and a
+                        more refined guest experience.
+                    </p>
+
+                    <div class="room-bottom">
+
+                        <span>
+                            Premium Comfort
+                        </span>
+
+                        <a href="booking.html"
+                           class="room-link">
+
+                            Book Now →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="room-card">
+
+                <div class="room-image">
+
+                    <img src="images/11.jfif"
+                         alt="Luxury Room">
+
+                </div>
+
+                <div class="room-info">
+
+                    <h3>
+                        Luxury Room
+                    </h3>
+
+                    <p>
+                        A sophisticated space created for
+                        an exceptional guest experience.
+                    </p>
+
+                    <div class="room-bottom">
+
+                        <span>
+                            Luxury Experience
+                        </span>
+
+                        <a href="booking.html"
+                           class="room-link">
+
+                            Book Now →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WELLNESS
+===================================================== -->
+
+<section class="section wellness"
+         id="wellness">
+
+    <div class="container wellness-grid">
+
+
+        <div class="wellness-images">
+
+            <img src="images/11.jfif"
+                 alt="Sauna">
+
+            <img src="images/2.jfif"
+                 alt="Massage">
+
+        </div>
+
+
+        <div class="wellness-content">
+
+            <span class="section-label">
+                WELLNESS & RELAXATION
+            </span>
+
+            <h2 class="section-title">
+
+                Take Time To
+                <span>Relax.</span>
+
+            </h2>
+
+            <p class="section-text">
+
+                Your stay should be about more than
+                accommodation. Take time to relax,
+                refresh your body and recharge your mind.
+
+            </p>
+
+
+            <div class="wellness-item">
+
+                <div class="wellness-icon">
+
+                    <i class="fa-solid fa-temperature-high"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Sauna
+                    </h3>
+
+                    <p>
+                        Enjoy a peaceful sauna experience
+                        after a busy day.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="wellness-item">
+
+                <div class="wellness-icon">
+
+                    <i class="fa-solid fa-hands"></i>
+
+                </div>
+
+                <div>
+
+                    <h3>
+                        Massage
+                    </h3>
+
+                    <p>
+                        Relax and unwind with our massage
+                        experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a href="booking.html"
+               class="btn btn-green">
+
+                Book Your Experience
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY CHOOSE US
+===================================================== -->
+
+<section class="section why">
+
+    <div class="container">
+
+
+        <div class="why-heading">
+
+            <span class="section-label">
+                WHY TRIPLE
+            </span>
+
+            <h2 class="section-title">
+
+                Stay With
+                <span>Confidence.</span>
+
+            </h2>
+
+            <p class="section-text">
+
+                Everything is designed around creating
+                a comfortable and memorable experience.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-bed"></i>
+
+                </div>
+
+                <h3>
+                    Comfortable
+                </h3>
+
+                <p>
+                    Carefully prepared spaces for
+                    a peaceful stay.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                </div>
+
+                <h3>
+                    Hospitality
+                </h3>
+
+                <p>
+                    Warm and friendly service
+                    throughout your stay.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-spa"></i>
+
+                </div>
+
+                <h3>
+                    Wellness
+                </h3>
+
+                <p>
+                    Sauna and massage to help
+                    you relax.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+
+                    <i class="fa-solid fa-shield-heart"></i>
+
+                </div>
+
+                <h3>
+                    Peaceful
+                </h3>
+
+                <p>
+                    A welcoming environment
+                    where you can feel at ease.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <span class="section-label">
+            YOUR HOME AWAY FROM HOME
+        </span>
+
+        <h2>
+            Your Comfortable Stay
+            Starts Here.
+        </h2>
+
+        <p>
+            Experience comfort, hospitality and relaxation
+            at Triple Guest House.
+        </p>
+
+        <a href="booking.html"
+           class="btn">
+
+            Book Your Stay
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div class="footer-brand">
+
+            <a href="index.html" class="logo">
+
+                <strong>TRIPLE</strong>
+
+                <small>GUEST HOUSE</small>
+
+            </a>
+
+            <p>
+                Comfort, hospitality and relaxation.
+                Your peaceful stay starts here.
+            </p>
+
+
+            <div class="socials">
+
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h3 class="footer-title">
+                Quick Links
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="index.html">Home</a>
+
+                <a href="about.html">About Us</a>
+
+                <a href="gallery.html">Gallery</a>
+
+                <a href="contact.html">Contact Us</a>
+
+                <a href="booking.html">Book Now</a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h3 class="footer-title">
+                Services
+            </h3>
+
+            <div class="footer-links">
+
+                <a href="#rooms">
+                    Accommodation
+                </a>
+
+                <a href="#wellness">
+                    Sauna
+                </a>
+
+                <a href="#wellness">
+                    Massage
+                </a>
+
+                <a href="booking.html">
+                    Reservations
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-contact">
+
+            <h3 class="footer-title">
+                Contact
+            </h3>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Rwanda
+            </p>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +250 XXX XXX XXX
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                info@tripleguesthouse.com
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        © 2026 Triple Guest House.
+        All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a href="https://wa.me/250XXXXXXXXX"
+   class="whatsapp"
+   target="_blank"
+   aria-label="WhatsApp">
+
+    <i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+
+    /* =================================================
+       HERO SLIDER
+    ================================================= */
+
+    const slides = document.querySelectorAll(".slide");
+
+    const nextButton =
+        document.getElementById("heroNext");
+
+    const prevButton =
+        document.getElementById("heroPrev");
+
+    const dots =
+        document.querySelectorAll(".hero-dot");
+
+
+    let currentSlide = 0;
+
+    let sliderTimer;
+
+
+    /* SHOW SLIDE */
+
+    function showSlide(index) {
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+
+        slides.forEach(function (slide) {
+
+            slide.classList.remove("active");
+
+        });
+
+
+        dots.forEach(function (dot) {
+
+            dot.classList.remove("active");
+
+        });
+
+
+        slides[index].classList.add("active");
+
+
+        if (dots[index]) {
+
+            dots[index].classList.add("active");
+
+        }
+
+
+        currentSlide = index;
+
+    }
+
+
+    /* NEXT */
+
+    function nextSlide() {
+
+        showSlide(currentSlide + 1);
+
+        restartTimer();
+
+    }
+
+
+    /* PREVIOUS */
+
+    function previousSlide() {
+
+        showSlide(currentSlide - 1);
+
+        restartTimer();
+
+    }
+
+
+    /* NEXT BUTTON */
+
+    nextButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        nextSlide();
+
+    });
+
+
+    /* PREVIOUS BUTTON */
+
+    prevButton.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+        previousSlide();
+
+    });
+
+
+    /* DOTS */
+
+    dots.forEach(function (dot) {
+
+        dot.addEventListener("click", function () {
+
+            const index =
+                Number(dot.getAttribute("data-slide"));
+
+            showSlide(index);
+
+            restartTimer();
+
+        });
+
+    });
+
+
+    /* AUTOMATIC */
+
+    function startTimer() {
+
+        sliderTimer = setInterval(function () {
+
+            showSlide(currentSlide + 1);
+
+        }, 5000);
+
+    }
+
+
+    /* RESTART */
+
+    function restartTimer() {
+
+        clearInterval(sliderTimer);
+
+        startTimer();
+
+    }
+
+
+    /* START */
+
+    showSlide(0);
+
+    startTimer();
+
+
+
+    /* =================================================
+       NAVBAR
+    ================================================= */
+
+    const navbar =
+        document.getElementById("navbar");
+
+
+    window.addEventListener("scroll", function () {
+
+        if (window.scrollY > 80) {
+
+            navbar.classList.add("scrolled");
+
+        } else {
+
+            navbar.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+
+    /* =================================================
+       MOBILE MENU
+    ================================================= */
+
+    const menuButton =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuButton.addEventListener("click", function () {
+
+        navLinks.classList.toggle("mobile-open");
+
+    });
+
+
+});
+
+</script>
+
+
+</body>
+
+</html>
