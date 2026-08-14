@@ -168,53 +168,59 @@
 
 
 
-       /* =========================
+ /* ==============================
    TRIPLE GUEST HOUSE LOGO
-========================= */
+================================ */
 
 .brand-logo {
+    position: absolute;
+    left: 55px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
-    gap: 12px;
     text-decoration: none;
-    color: #174d35;
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
+    z-index: 100;
 }
 
 .brand-logo img {
-    width: 58px;
-    height: 58px;
+    width: 105px;
+    height: 75px;
     object-fit: contain;
     display: block;
-    border: none;
 }
 
-/* Hover */
-.brand-logo:hover {
-    color: #2e8b57;
+/* Desktop */
+@media (min-width: 769px) {
+    .brand-logo img {
+        width: 105px;
+        height: 75px;
+    }
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
+/* Tablet */
+@media (max-width: 1000px) {
     .brand-logo {
-        gap: 8px;
-        font-size: 15px;
+        left: 30px;
     }
 
     .brand-logo img {
-        width: 48px;
-        height: 48px;
+        width: 90px;
+        height: 68px;
     }
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+    .brand-logo {
+        left: 20px;
+    }
+
+    .brand-logo img {
+        width: 75px;
+        height: 60px;
+    }
+}
         /* NAVIGATION */
 
         .nav-links {
