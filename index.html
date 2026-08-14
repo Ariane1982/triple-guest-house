@@ -168,58 +168,94 @@
 
 
 
- /* ==============================
-   TRIPLE GUEST HOUSE LOGO
+/* ==============================
+   NAVBAR LOGO
 ================================ */
 
 .brand-logo {
-    position: absolute;
-    left: 55px;
-    top: 50%;
-    transform: translateY(-50%);
     display: flex;
     align-items: center;
     text-decoration: none;
-    z-index: 100;
+    flex-shrink: 0;
 }
 
 .brand-logo img {
-    width: 105px;
-    height: 75px;
+    width: 78px;
+    height: 58px;
     object-fit: contain;
     display: block;
 }
 
-/* Desktop */
-@media (min-width: 769px) {
-    .brand-logo img {
-        width: 105px;
-        height: 75px;
-    }
+
+/* ==============================
+   NAVBAR LAYOUT
+================================ */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 18px 5.5%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-/* Tablet */
-@media (max-width: 1000px) {
-    .brand-logo {
-        left: 30px;
-    }
 
-    .brand-logo img {
-        width: 90px;
-        height: 68px;
-    }
+/* Navigation */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+    margin-left: auto;
+    margin-right: 35px;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-    .brand-logo {
-        left: 20px;
-    }
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
 
-    .brand-logo img {
-        width: 75px;
-        height: 60px;
-    }
+.nav-menu a:hover {
+    color: #8fd19e;
+}
+
+
+/* Book Now */
+
+.nav-book {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 14px 24px;
+
+    background: #2f8f5b;
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    transition: 0.3s ease;
+}
+
+.nav-book:hover {
+    background: #3da96b;
+    transform: translateY(-2px);
 }
         /* NAVIGATION */
 
